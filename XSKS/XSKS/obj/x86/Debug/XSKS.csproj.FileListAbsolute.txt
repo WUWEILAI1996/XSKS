@@ -1,0 +1,9 @@
+E:\软工课程设计\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe
+E:\软工课程设计\XSKS\XSKS\XSKS\bin\Debug\XSKS.pdb
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Form1.resources
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Properties.Resources.resources
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csproj.GenerateResource.Cache
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.exe
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.pdb
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Main.resources
+E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Signup.resources
