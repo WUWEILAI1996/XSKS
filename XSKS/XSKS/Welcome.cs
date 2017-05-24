@@ -9,23 +9,18 @@ using System.Windows.Forms;
 
 namespace XSKS
 {
-    public partial class Form1 : Form
+    public partial class Welcome : Form
     {
-        public Form1()
+        public Welcome()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Signup signup = new Signup();
+            Form1 f1 = new Form1();
             this.Hide();
-            signup.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
+            f1.Show();
         }
 
         protected override CreateParams CreateParams
