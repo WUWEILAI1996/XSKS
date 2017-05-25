@@ -11,3 +11,17 @@ E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Examine.resources
 E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Main2.resources
 E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csprojResolveAssemblyReference.cache
 E:\软工课程设计\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Welcome.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.exe
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.pdb
+D:\XSKS\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe
+D:\XSKS\XSKS\XSKS\XSKS\bin\Debug\XSKS.pdb
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csprojResolveAssemblyReference.cache
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Examine.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Form1.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Main.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Main2.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Properties.Resources.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Signup.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Welcome.resources
+D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csproj.GenerateResource.Cache
+D:\XSKS\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe.config
