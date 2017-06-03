@@ -25,3 +25,6 @@ D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Signup.resources
 D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Welcome.resources
 D:\XSKS\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csproj.GenerateResource.Cache
 D:\XSKS\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe.config
+D:\ruangong\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe.config
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.exe
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.pdb
