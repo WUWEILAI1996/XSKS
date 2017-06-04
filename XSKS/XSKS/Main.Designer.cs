@@ -60,11 +60,11 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -355,6 +355,7 @@
             this.button5.TabIndex = 6;
             this.button5.Text = "返回之前时长";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -375,6 +376,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox3
             // 
@@ -402,6 +404,26 @@
             this.label6.Size = new System.Drawing.Size(129, 29);
             this.label6.TabIndex = 1;
             this.label6.Text = "修改时长";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(480, 156);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 29);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "分钟";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(480, 59);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 29);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "分钟";
             // 
             // label5
             // 
@@ -433,26 +455,6 @@
             this.button6.Text = "退出";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(480, 59);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 29);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "分钟";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(480, 156);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 29);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "分钟";
             // 
             // Main
             // 

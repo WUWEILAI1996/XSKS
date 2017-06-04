@@ -71,6 +71,8 @@ namespace XSKS
 
             textBox2.Text = i.ToString();
             textBox3.Text = i.ToString();
+            SqlCommand save = new SqlCommand("update Time set time = '" + textBox2.Text + "'where flag = '0'", Mycon);
+            save.ExecuteNonQuery();
 
             Mycon.Close();
 
@@ -84,6 +86,8 @@ namespace XSKS
             string connstr = ConfigurationManager.ConnectionStrings["SQLConnString"].ConnectionString;
             Mycon = new SqlConnection(connstr);
             Mycon.Open();
+
+            listBox1.Items.Clear();
 
             if (textBox1.Text == "")
             {
@@ -205,7 +209,70 @@ namespace XSKS
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            string connstr = ConfigurationManager.ConnectionStrings["SQLConnString"].ConnectionString;
+            Mycon = new SqlConnection(connstr);
+            Mycon.Open();
 
+            int i;
+            bool reslut = Int32.TryParse(textBox3.Text, out i);
+            if (reslut)
+            {
+                SqlCommand update_time = new SqlCommand("update Time set time = '" + textBox3.Text + "'where flag = '1'", Mycon);
+                DialogResult reslut1 = MessageBox.Show("是否确定该修改？", "提示", MessageBoxButtons.YesNo);
+                if (reslut1 == DialogResult.Yes)
+                {
+                    SqlCommand save = new SqlCommand("update Time set time = '" + textBox2.Text + "'where flag = '0'", Mycon);
+                    int a = update_time.ExecuteNonQuery();
+                    save.ExecuteNonQuery();
+                    if (a != 0)
+                    {
+                        MessageBox.Show("修改成功！");
+                        textBox2.Text = textBox3.Text;
+                    }
+                    else
+                    {
+                        MessageBox.Show("修改失败！");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("请输入正确的时间数字！");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int i;
+            bool result = Int32.TryParse(textBox3.Text, out i);
+            if (result)
+            {
+                i++;
+                textBox3.Text = i.ToString();
+            }
+            else
+            {
+                MessageBox.Show("请输入正确的时间数字！");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            string connstr = ConfigurationManager.ConnectionStrings["SQLConnString"].ConnectionString;
+            Mycon = new SqlConnection(connstr);
+            Mycon.Open();
+
+            SqlCommand ret = new SqlCommand("select * from Time where flag = '0'", Mycon);
+            da = new SqlDataAdapter(ret);
+            da.Fill(ds, "Time");
+
+            textBox3.Text = ds.Tables["Time"].Rows[0]["time"].ToString();
+
+            Mycon.Close();
         }
 
     }

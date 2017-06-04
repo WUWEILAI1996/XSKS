@@ -42,3 +42,17 @@ C:\users\administrator\Desktop\XSKS-master\XSKS\XSKS\obj\x86\Debug\XSKS.csproj.G
 C:\Users\wuya\Desktop\XSKS-master\XSKS\XSKS\bin\Debug\XSKS.exe.config
 C:\Users\wuya\Desktop\XSKS-master\XSKS\XSKS\obj\x86\Debug\XSKS.exe
 C:\Users\wuya\Desktop\XSKS-master\XSKS\XSKS\obj\x86\Debug\XSKS.pdb
+D:\ruangong\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe.config
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.exe
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.pdb
+D:\ruangong\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe
+D:\ruangong\XSKS\XSKS\XSKS\bin\Debug\XSKS.pdb
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csprojResolveAssemblyReference.cache
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Examine.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Form1.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Main.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Main2.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Properties.Resources.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Signup.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Welcome.resources
+D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csproj.GenerateResource.Cache
