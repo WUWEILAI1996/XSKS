@@ -42,63 +42,74 @@ namespace XSKS
             SqlDataAdapter da;
             DataSet ds = new DataSet();
 
-            if (radioButton1.Checked)
+            if (textBox1.Text == "")
             {
-                sql_login = "select * from admin where id ='" + usrid + "' and password='" + pwd + "'";
-                cmd = new SqlCommand(sql_login, Mycon);
-                da = new SqlDataAdapter(cmd);
-                da.Fill(ds, "admin");
-
-
-                search = cmd.ExecuteReader();
-                try
-                {
-                    if (search.Read())
-                    {
-                        admin_main = new Main(ds.Tables["admin"].Rows[0]["name"].ToString());
-                        this.Hide();
-                        admin_main.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("请输入正确的用户名和密码");
-                        textBox2.Text = "";
-                    }
-                }
-                catch (Exception msg)
-                {
-                    throw new Exception(msg.ToString()); 
-                }
+                MessageBox.Show("请输入用户名！");
             }
-            else if (radioButton2.Checked)
+            else if (textBox2.Text == "")
             {
-                sql_login = "select * from Stu where usrid='" + usrid + "' and pwd='" + pwd + "'";
-                cmd = new SqlCommand(sql_login, Mycon);
-
-                search = cmd.ExecuteReader();
-                try
-                {
-                    if (search.Read())
-                    {
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("请输入正确的用户名和密码");
-                        textBox2.Text = "";
-                    }
-                }
-                catch (Exception msg)
-                {
-                    throw new Exception(msg.ToString());
-                }
+                MessageBox.Show("请输入密码！");
             }
             else
             {
-                MessageBox.Show("请选择登陆方式！");
-            }
+                if (radioButton1.Checked)
+                {
+                    sql_login = "select * from admin where id ='" + usrid + "' and password='" + pwd + "'";
+                    cmd = new SqlCommand(sql_login, Mycon);
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(ds, "admin");
 
-            Mycon.Close();
+
+                    search = cmd.ExecuteReader();
+                    try
+                    {
+                        if (search.Read())
+                        {
+                            admin_main = new Main(ds.Tables["admin"].Rows[0]["name"].ToString());
+                            this.Hide();
+                            admin_main.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("请输入正确的用户名和密码");
+                            textBox2.Text = "";
+                        }
+                    }
+                    catch (Exception msg)
+                    {
+                        throw new Exception(msg.ToString());
+                    }
+                }
+                else if (radioButton2.Checked)
+                {
+                    sql_login = "select * from Stu where id='" + usrid + "' and password='" + pwd + "'";
+                    cmd = new SqlCommand(sql_login, Mycon);
+
+                    search = cmd.ExecuteReader();
+                    try
+                    {
+                        if (search.Read())
+                        {
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("请输入正确的用户名和密码");
+                            textBox2.Text = "";
+                        }
+                    }
+                    catch (Exception msg)
+                    {
+                        throw new Exception(msg.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("请选择登陆方式！");
+                }
+
+                Mycon.Close();
+            }
         }
 
         protected override CreateParams CreateParams

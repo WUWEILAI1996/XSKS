@@ -98,7 +98,19 @@ namespace XSKS
             }
             else
             {
-                SqlCommand insert = new SqlCommand("INSERT INTO Stu VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox4.Text + "','')", Mycon);
+                SqlCommand insert = new SqlCommand("INSERT INTO Stu VALUES ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox4.Text + "')", Mycon);
+                int a = insert.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    MessageBox.Show("注册失败！");
+                }
+                else
+                {
+                     MessageBox.Show("注册成功！");
+                     Form1 login = new Form1();
+                     this.Close();
+                     login.Show();
+                }
             }
         }
 
