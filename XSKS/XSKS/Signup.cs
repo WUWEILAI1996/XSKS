@@ -22,7 +22,13 @@ namespace XSKS
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            DialogResult reslut = MessageBox.Show("是否选择退出？", "提示", MessageBoxButtons.YesNo);
+            if (reslut == DialogResult.Yes)
+            {
+                Form1 fm1 = new Form1();
+                fm1.Show();
+                this.Close();
+            }
         }
 
         protected override CreateParams CreateParams

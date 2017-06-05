@@ -84,6 +84,9 @@ namespace XSKS
                 {
                     sql_login = "select * from Stu where id='" + usrid + "' and password='" + pwd + "'";
                     cmd = new SqlCommand(sql_login, Mycon);
+                    SqlDataAdapter data = new SqlDataAdapter(cmd);
+                    DataSet dataset = new DataSet();
+                    data.Fill(dataset, "Stu");
 
                     search = cmd.ExecuteReader();
                     try
@@ -91,6 +94,8 @@ namespace XSKS
                         if (search.Read())
                         {
                             this.Hide();
+                            Main2 stu = new Main2(dataset.Tables["Stu"].Rows[0]["name"].ToString(), dataset.Tables["Stu"].Rows[0]["id"].ToString());
+                            stu.Show();
                         }
                         else
                         {
@@ -110,7 +115,7 @@ namespace XSKS
 
                 Mycon.Close();
             }
-        }
+        } 
 
         protected override CreateParams CreateParams
         {
