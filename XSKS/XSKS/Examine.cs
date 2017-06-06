@@ -41,6 +41,7 @@ namespace XSKS
             Mycon.Open();
 
             SqlCommand time = new SqlCommand("select * from Time where flag = '1'", Mycon);
+            da = new SqlDataAdapter(time);
             da.Fill(ds, "Time");
             h = Int32.Parse(ds.Tables["Time"].Rows[0]["time"].ToString()) / 60;
             m = Int32.Parse(ds.Tables["Time"].Rows[0]["time"].ToString()) - h * 60;
