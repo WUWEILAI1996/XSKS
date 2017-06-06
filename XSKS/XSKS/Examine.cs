@@ -24,14 +24,27 @@ namespace XSKS
         int flag9 = 0;
         int flag10 = 0;
         string id;
+        SqlConnection Mycon;
         public Examine(string _id)
         {
             InitializeComponent();
         }
 
-        TimeSpan ts = new TimeSpan(0, 10, 0);
+        TimeSpan ts;
+        int h, m;
         private void Examine_Load(object sender, EventArgs e)
         {
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            string connstr = ConfigurationManager.ConnectionStrings["SQLConnString"].ConnectionString;
+            Mycon = new SqlConnection(connstr);
+            Mycon.Open();
+
+            SqlCommand time = new SqlCommand("select * from Time where flag = '1'", Mycon);
+            da.Fill(ds, "Time");
+            h = Int32.Parse(ds.Tables["Time"].Rows[0]["time"].ToString()) / 60;
+            m = Int32.Parse(ds.Tables["Time"].Rows[0]["time"].ToString()) - h * 60;
+            ts = new TimeSpan(h, m, 0);
             label5.Text = "";
             label6.Text = "";
             label7.Text = "";
@@ -47,7 +60,7 @@ namespace XSKS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            String str =ts.Minutes.ToString() + " : " + ts.Seconds.ToString();
+            String str =(ts.Hours*60+ts.Minutes).ToString() + " : " + ts.Seconds.ToString();
 
             label2.Text = str;
 
