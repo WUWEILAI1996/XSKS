@@ -67,14 +67,14 @@ namespace XSKS
                     da = new SqlDataAdapter(search2);
                     da.Fill(ds, "Test");
 
-                    label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
-                    label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
-                    label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
-                    label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
-                    label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
-                    label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
-                    label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
                 }
+                label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
+                label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
+                label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
+                label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
+                label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
+                label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
+                label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
             }
             else
             {
@@ -127,6 +127,45 @@ namespace XSKS
             else
             {
                 wrong_test++;
+                label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
+                label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
+                label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
+                label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
+                label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
+                label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
+                label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SqlCommand update = new SqlCommand("update history set flag = '0' where test_num = '" + ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString() + "'", Mycon);
+            update.ExecuteNonQuery();
+            ds.Clear();
+            SqlCommand search1 = new SqlCommand("select * from history where stu_id = '" + id + "'and flag = '1' and TorF = 'F'", Mycon);
+            da = new SqlDataAdapter(search1);
+            da.Fill(ds, "history");
+            for (int i = 0; i < ds.Tables["history"].Rows.Count; i++)
+            {
+                SqlCommand search2 = new SqlCommand("select * from Test where test_num = '" + ds.Tables["history"].Rows[i]["test_num"] + "'", Mycon);
+                da = new SqlDataAdapter(search2);
+                da.Fill(ds, "Test");
+            }
+            if (wrong_test == 0)
+            {
+                wrong_test++;
+                label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
+                label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
+                label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
+                label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
+                label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
+                label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
+                label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
+            }
+            else
+            {
+
+                wrong_test--;
                 label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
                 label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
                 label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();

@@ -13,33 +13,31 @@ namespace XSKS
 {
     public partial class Examine : Form
     {
-        int flag1 = 0;
-        int flag2 = 0;
-        int flag3 = 0;
-        int flag4 = 0;
-        int flag5 = 0;
-        int flag6 = 0;
-        int flag7 = 0;
-        int flag8 = 0;
-        int flag9 = 0;
-        int flag10 = 0;
+        int[] flag = { 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0};
         string id;
         SqlConnection Mycon;
+        int[] test = new int[10];
+        int[] chose = new int[10];
+        int now_num = 0;
+        TimeSpan ts;
+        int h, m;
+        DataSet ds = new DataSet();
         public Examine(string _id)
         {
             InitializeComponent();
+            this.id = _id;
         }
-
-        TimeSpan ts;
-        int h, m;
         private void Examine_Load(object sender, EventArgs e)
         {
             SqlDataAdapter da;
-            DataSet ds = new DataSet();
             string connstr = ConfigurationManager.ConnectionStrings["SQLConnString"].ConnectionString;
             Mycon = new SqlConnection(connstr);
             Mycon.Open();
+            int test_num;
+            int x = 0, y;
 
+
+            //定时器
             SqlCommand time = new SqlCommand("select * from Time where flag = '1'", Mycon);
             da = new SqlDataAdapter(time);
             da.Fill(ds, "Time");
@@ -57,7 +55,41 @@ namespace XSKS
             String str = ts.Minutes.ToString() + " : " + ts.Seconds.ToString();
             label2.Text = str;
             this.timer1.Start();
+
+            //载入试卷
+            SqlCommand search = new SqlCommand("select * from Test", Mycon);
+            da = new SqlDataAdapter(search);
+            da.Fill(ds, "Test");
+            test_num = ds.Tables["Test"].Rows.Count;
+
+            while (x < 10)
+            {
+                Random a = new Random();
+                test[x] = a.Next(test_num);
+                for (y = 0; y < x; y++)
+                {
+                    if (test[y] == test[x])
+                    {
+                        test[x] = a.Next(test_num);
+                        y = 0;
+                    }
+                }
+                x++;
+            }
+
+            for (y = 0; y < 10; y++)
+            {
+                chose[y] = 0;
+            }
+
+            label1.Text = "题目" + (now_num+1).ToString() + "：";
+            label5.Text = ds.Tables["Test"].Rows[test[now_num]]["title"].ToString();
+            label6.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_A"].ToString();
+            label7.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_B"].ToString();
+            label8.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_C"].ToString();
+            label9.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_D"].ToString();
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -72,7 +104,9 @@ namespace XSKS
 
                 timer1.Enabled = false;
                 MessageBox.Show("考试时间到，系统将强行交卷");
-
+                string time = DateTime.Now.ToString();
+                jiaojuan(time);
+                this.Close();
             }
         }
 
@@ -99,7 +133,7 @@ namespace XSKS
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag1 == 0)
+            if (flag[0] == 0)
                 checkBox1.Checked = false;
             else
                 checkBox1.Checked = true;
@@ -107,7 +141,7 @@ namespace XSKS
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag2 == 0)
+            if (flag[1] == 0)
                 checkBox2.Checked = false;
             else
                 checkBox2.Checked = true;
@@ -115,7 +149,7 @@ namespace XSKS
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag3 == 0)
+            if (flag[2] == 0)
                 checkBox3.Checked = false;
             else
                 checkBox3.Checked = true;
@@ -123,7 +157,7 @@ namespace XSKS
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag4 == 0)
+            if (flag[3] == 0)
                 checkBox4.Checked = false;
             else
                 checkBox4.Checked = true;
@@ -131,7 +165,7 @@ namespace XSKS
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag5 == 0)
+            if (flag[4] == 0)
                 checkBox5.Checked = false;
             else
                 checkBox5.Checked = true;
@@ -139,7 +173,7 @@ namespace XSKS
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag6 == 0)
+            if (flag[5] == 0)
                 checkBox6.Checked = false;
             else
                 checkBox6.Checked = true;
@@ -147,7 +181,7 @@ namespace XSKS
 
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag7 == 0)
+            if (flag[6] == 0)
                 checkBox7.Checked = false;
             else
                 checkBox7.Checked = true;
@@ -155,7 +189,7 @@ namespace XSKS
 
         private void checkBox8_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag8 == 0)
+            if (flag[7] == 0)
                 checkBox8.Checked = false;
             else
                 checkBox8.Checked = true;
@@ -163,7 +197,7 @@ namespace XSKS
 
         private void checkBox9_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag9 == 0)
+            if (flag[8] == 0)
                 checkBox9.Checked = false;
             else
                 checkBox9.Checked = true;
@@ -171,10 +205,285 @@ namespace XSKS
 
         private void checkBox10_CheckedChanged(object sender, EventArgs e)
         {
-            if (flag10 == 0)
+            if (flag[9] == 0)
                 checkBox10.Checked = false;
             else
                 checkBox10.Checked = true;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            chose[now_num] = 1;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            chose[now_num] = 2;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            chose[now_num] = 3;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            chose[now_num] = 4;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            radioButton1.Checked = true;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            radioButton2.Checked = true;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            radioButton3.Checked = true;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            radioButton4.Checked = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (now_num == 0)
+            {
+                MessageBox.Show("这是第一题！");
+            }
+            else
+            {
+                if (chose[now_num] != 0)
+                {
+                    flag[now_num] = 1;
+                    checkBox1_CheckedChanged(sender, e);
+                    checkBox2_CheckedChanged(sender, e);
+                    checkBox3_CheckedChanged(sender, e);
+                    checkBox4_CheckedChanged(sender, e);
+                    checkBox5_CheckedChanged(sender, e);
+                    checkBox6_CheckedChanged(sender, e);
+                    checkBox7_CheckedChanged(sender, e);
+                    checkBox8_CheckedChanged(sender, e);
+                    checkBox9_CheckedChanged(sender, e);
+                    checkBox10_CheckedChanged(sender, e);
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                now_num--;
+                if (chose[now_num] == 0)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 1)
+                {
+                    radioButton1.Checked = true;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 2)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = true;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 3)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = true;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 4)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = true;
+                }
+                label1.Text = "题目" + (now_num + 1).ToString() + "：";
+                label5.Text = ds.Tables["Test"].Rows[test[now_num]]["title"].ToString();
+                label6.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_A"].ToString();
+                label7.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_B"].ToString();
+                label8.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_C"].ToString();
+                label9.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_D"].ToString();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (now_num == 9)
+            {
+                MessageBox.Show("这是最后一题！");
+            }
+            else
+            {
+                if (chose[now_num] != 0)
+                {
+                    flag[now_num] = 1;
+                    checkBox1_CheckedChanged(sender, e);
+                    checkBox2_CheckedChanged(sender, e);
+                    checkBox3_CheckedChanged(sender, e);
+                    checkBox4_CheckedChanged(sender, e);
+                    checkBox5_CheckedChanged(sender, e);
+                    checkBox6_CheckedChanged(sender, e);
+                    checkBox7_CheckedChanged(sender, e);
+                    checkBox8_CheckedChanged(sender, e);
+                    checkBox9_CheckedChanged(sender, e);
+                    checkBox10_CheckedChanged(sender, e);
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                now_num++;
+                if (chose[now_num] == 0)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 1)
+                {
+                    radioButton1.Checked = true;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 2)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = true;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 3)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = true;
+                    radioButton4.Checked = false;
+                }
+                else if (chose[now_num] == 4)
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                    radioButton3.Checked = false;
+                    radioButton4.Checked = true;
+                }
+                label1.Text = "题目" + (now_num + 1).ToString() + "：";
+                label5.Text = ds.Tables["Test"].Rows[test[now_num]]["title"].ToString();
+                label6.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_A"].ToString();
+                label7.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_B"].ToString();
+                label8.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_C"].ToString();
+                label9.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_D"].ToString();
+            }
+        }
+
+        private void jiaojuan(string time)
+        {
+            SqlDataAdapter da;
+            string connstr = ConfigurationManager.ConnectionStrings["SQLConnString"].ConnectionString;
+            Mycon = new SqlConnection(connstr);
+            Mycon.Open();
+            SqlCommand insert;
+            int score = 100;
+            int x;
+
+            for (x = 0; x < 10; x++)
+            {
+                if (chose[x] == 0)
+                {
+                    score -= 10;
+                    insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'F', '"+id+"', '1')", Mycon);
+                    insert.ExecuteNonQuery();
+                }
+                else if (chose[x] == 1)
+                {
+                    if (ds.Tables["Test"].Rows[test[x]]["ans"].ToString() != "A")
+                    {
+                        score -= 10;
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'F', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'T', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                }
+                else if (chose[x] == 2)
+                {
+                    if (ds.Tables["Test"].Rows[test[x]]["ans"].ToString() != "B")
+                    {
+                        score -= 10;
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'F', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'T', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                }
+                else if (chose[x] == 3)
+                {
+                    if (ds.Tables["Test"].Rows[test[x]]["ans"].ToString() != "C")
+                    {
+                        score -= 10;
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'F', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'T', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                }
+                else if (chose[x] == 4)
+                {
+                    if (ds.Tables["Test"].Rows[test[x]]["ans"].ToString() != "D")
+                    {
+                        score -= 10;
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'F', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        insert = new SqlCommand("insert into history Values('" + ds.Tables["Test"].Rows[test[x]]["test_num"].ToString() + "', 'T', '" + id + "', '1')", Mycon);
+                        insert.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            SqlCommand insert_score = new SqlCommand("insert into score Values('" + score.ToString() + "', '"+id+"', '"+time+"')", Mycon);
+            insert_score.ExecuteNonQuery();
+
+            MessageBox.Show("你的得分是：" + score.ToString());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string time = DateTime.Now.ToString();
+            DialogResult reslut = MessageBox.Show("是否交卷？", "提示", MessageBoxButtons.YesNo);
+            if (reslut == DialogResult.Yes)
+            {
+                jiaojuan(time);
+                this.Close();
+            }
         }
     }
 }

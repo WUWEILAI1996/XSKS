@@ -210,47 +210,55 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Location = new System.Drawing.Point(537, 117);
-            this.label7.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label7.MaximumSize = new System.Drawing.Size(250, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 20);
             this.label7.TabIndex = 5;
             this.label7.Text = "0";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Location = new System.Drawing.Point(537, 222);
-            this.label9.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label9.MaximumSize = new System.Drawing.Size(250, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(19, 20);
             this.label9.TabIndex = 5;
             this.label9.Text = "0";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Location = new System.Drawing.Point(86, 220);
-            this.label8.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label8.MaximumSize = new System.Drawing.Size(250, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(19, 20);
             this.label8.TabIndex = 5;
             this.label8.Text = "0";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Location = new System.Drawing.Point(86, 117);
-            this.label6.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label6.MaximumSize = new System.Drawing.Size(250, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "0";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(94, 32);
+            this.label5.Location = new System.Drawing.Point(111, 32);
             this.label5.MaximumSize = new System.Drawing.Size(600, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 20);
@@ -260,6 +268,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton4.Location = new System.Drawing.Point(494, 218);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(37, 24);
@@ -267,10 +276,12 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "D";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
+            this.radioButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton3.Location = new System.Drawing.Point(43, 218);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(37, 24);
@@ -278,10 +289,12 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "C";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton2.Location = new System.Drawing.Point(494, 113);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(37, 24);
@@ -289,10 +302,12 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "B";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton1.Location = new System.Drawing.Point(43, 113);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(37, 24);
@@ -300,15 +315,16 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "A";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(39, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "题目";
+            this.label1.Text = "题目:";
             // 
             // button1
             // 
@@ -319,6 +335,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "上一题";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -329,6 +346,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "下一题";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -339,6 +357,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "交卷";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
