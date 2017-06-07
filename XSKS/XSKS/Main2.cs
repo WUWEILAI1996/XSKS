@@ -151,28 +151,33 @@ namespace XSKS
                 da = new SqlDataAdapter(search2);
                 da.Fill(ds, "Test");
             }
-            if (wrong_test == 0)
-            {
-                wrong_test++;
-                label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
-                label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
-                label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
-                label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
-                label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
-                label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
-                label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
-            }
+            if (ds.Tables["history"].Rows.Count <= 0)
+                MessageBox.Show("你没有错题了！");
             else
             {
+                if (wrong_test == 0)
+                {
+                    wrong_test++;
+                    label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
+                    label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
+                    label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
+                    label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
+                    label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
+                    label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
+                    label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
+                }
+                else
+                {
 
-                wrong_test--;
-                label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
-                label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
-                label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
-                label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
-                label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
-                label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
-                label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
+                    wrong_test--;
+                    label10.Text = ds.Tables["Test"].Rows[wrong_test]["test_num"].ToString();
+                    label12.Text = ds.Tables["Test"].Rows[wrong_test]["title"].ToString();
+                    label13.Text = ds.Tables["Test"].Rows[wrong_test]["chose_A"].ToString();
+                    label14.Text = ds.Tables["Test"].Rows[wrong_test]["chose_B"].ToString();
+                    label15.Text = ds.Tables["Test"].Rows[wrong_test]["chose_C"].ToString();
+                    label16.Text = ds.Tables["Test"].Rows[wrong_test]["chose_D"].ToString();
+                    label11.Text = ds.Tables["Test"].Rows[wrong_test]["ans"].ToString();
+                }
             }
         }
 

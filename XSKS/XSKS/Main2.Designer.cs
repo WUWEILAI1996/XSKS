@@ -111,6 +111,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.Location = new System.Drawing.Point(154, 78);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(720, 267);
