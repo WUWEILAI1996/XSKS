@@ -56,3 +56,4 @@ D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Properties.Resources.resources
 D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Signup.resources
 D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.Welcome.resources
 D:\ruangong\XSKS\XSKS\XSKS\obj\x86\Debug\XSKS.csproj.GenerateResource.Cache
+E:\软工课程设计\XSKS\XSKS\XSKS\bin\Debug\XSKS.exe.config
