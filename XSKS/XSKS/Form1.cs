@@ -131,5 +131,21 @@ namespace XSKS
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.button2.Height != 60)
+            {
+                this.button2.Height = this.button2.Height + 2;
+                this.button2.Width = this.button2.Width + 2;
+                this.button2.Top -= 1;
+            }
+            else
+            {
+                this.button2.Height = 50;
+                this.button2.Width = 100;
+                this.button2.Top = 387;
+            }
+        }
     }
 }

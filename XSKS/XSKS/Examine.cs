@@ -90,7 +90,7 @@ namespace XSKS
             label9.Text = ds.Tables["Test"].Rows[test[now_num]]["chose_D"].ToString();
         }
 
-
+        int t = 400, flag1 = 0, x1 = 40, y1 = 118;
         private void timer1_Tick(object sender, EventArgs e)
         {
             String str =(ts.Hours*60+ts.Minutes).ToString() + " : " + ts.Seconds.ToString();
@@ -108,6 +108,34 @@ namespace XSKS
                 jiaojuan(time);
                 this.Close();
             }
+
+            if (x1 != t)
+            {
+
+                if (flag1 == 0)
+                {
+
+                    x1 += 4;
+                }
+                else
+                {
+                    x1 -= 4;
+                }
+            }
+            else
+            {
+                if (flag1 == 0)
+                {
+                    t = 40;
+                    flag1 = 1;
+                }
+                else
+                {
+                    t = 400;
+                    flag1 = 0;
+                }
+            }
+            this.label3.Location = new Point(x1, y1);
         }
 
         protected override CreateParams CreateParams

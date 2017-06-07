@@ -180,6 +180,37 @@ namespace XSKS
                 }
             }
         }
+        int t = 349, flag1 = 0, x1 = 269, y1 = 61;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (x1 != t)
+            {
+
+                if (flag1 == 0)
+                {
+
+                    x1 += 4;
+                }
+                else
+                {
+                    x1 -= 4;
+                }
+            }
+            else
+            {
+                if (flag1 == 0)
+                {
+                    t = 269;
+                    flag1 = 1;
+                }
+                else
+                {
+                    t = 349;
+                    flag1 = 0;
+                }
+            }
+            this.label17.Location = new Point(x1, y1);
+        }
 
     }
 }
