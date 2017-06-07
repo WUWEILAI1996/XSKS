@@ -120,5 +120,25 @@ namespace XSKS
             }
         }
 
+        private void button2_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.label7.Visible = true;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            this.label7.Visible = false;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            this.label8.Visible = false;
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.label8.Visible = true;
+        }
+
     }
 }

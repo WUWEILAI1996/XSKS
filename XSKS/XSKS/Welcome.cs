@@ -68,11 +68,18 @@ namespace XSKS
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            this.label2.Visible = false;
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.label2.Visible = true;
         }
     }
 }
