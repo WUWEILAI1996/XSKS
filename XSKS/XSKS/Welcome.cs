@@ -32,5 +32,47 @@ namespace XSKS
                 return cp;
             }
         }
+        int t = 400, flag = 0, x1 = 0, y1 = 400;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            if (x1 != t)
+            {
+
+                if (flag == 0)
+                {
+
+                    x1 += 4;
+                }
+                else
+                {
+                    x1 -= 4;
+                }
+            }
+            else
+            {
+                if (flag == 0)
+                {
+                    t = 0;
+                    flag = 1;
+                }
+                else
+                {
+                    t = 400;
+                    flag = 0;
+                }
+            }
+            this.pictureBox1.Location = new Point(x1, y1);
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+        }
     }
 }
