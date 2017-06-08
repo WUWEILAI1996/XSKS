@@ -135,6 +135,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
             this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
@@ -152,7 +153,6 @@
             this.tabPage2.Size = new System.Drawing.Size(999, 460);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "查询错题";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -370,6 +370,7 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main2
@@ -388,7 +389,7 @@
             this.Name = "Main2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main2";
-            this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.TransparencyKey = System.Drawing.SystemColors.Control;
             this.Load += new System.EventHandler(this.Main2_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
